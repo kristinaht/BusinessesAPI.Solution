@@ -12,7 +12,7 @@ _This API allows users to GET, POST, PUT, and DELETE businesses of the cretaceou
 * A user is able to GET, POST, PUT, and DELETE businesses.
 * A user is able to view details for a specific business, based on BusinessId.
 * A user is able to GET businesses by name or description. 
-### When testing the API using an application such as Postman, user is able to see which versions of API are available by going to the Response area and checking the "Headers" section.
+#### When testing the API using an application such as Postman, user is able to see which versions of API are available by going to the Response area and checking the "Headers" section.
 
 ## Endpoints:
 ### All endpoints have a host of 'localhost:5000' and base path of '/api'

@@ -1,0 +1,278 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API storing local businesses information, built as an independent project to practice writing OpenAPI Specifications and using custom endpoints.",
+    "version": "1.0.0",
+    "title": "Businesses API"
+  },
+  "host": "localhost:5000",
+  "basePath": "/api",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/businesses": {
+      "get": {
+        "summary": "Finds businesses by query parameter",
+        "description": "name and description can be used to search for businesses",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name of business to filter search by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "gender of business to filter search by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name of business to filter search by",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "list of businesses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "required": [
+                  "BusinessId",
+                  "name",
+                  "name",
+                  "age",
+                  "gender"
+                ],
+                "properties": {
+                  "BusinessId": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "age": {
+                    "type": "integer"
+                  },
+                  "gender": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query value"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new business to the Businesses API",
+        "description": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "business",
+            "description": "Business object that needs to be added to the Businesses API",
+            "required": true,
+            "schema": {
+              "required": [
+                "name",
+                "name",
+                "age",
+                "gender"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "integer"
+                },
+                "gender": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation; object added to database"
+          },
+          "400": {
+            "description": "Object could not be created"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/businesses/{id}": {
+      "get": {
+        "summary": "Find business by ID",
+        "description": "Returns a single business",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the business to return",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "required": [
+                "BusinessId",
+                "name",
+                "name",
+                "age",
+                "gender"
+              ],
+              "properties": {
+                "BusinessId": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "integer"
+                },
+                "gender": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Business not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an existing business",
+        "description": "",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the business object to be updated",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "business not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a business",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of business to delete",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Business not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Business": {
+      "type": "object",
+      "required": [
+        "name",
+        "name",
+        "age",
+        "gender"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "gender": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
