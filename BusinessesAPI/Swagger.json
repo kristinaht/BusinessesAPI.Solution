@@ -29,16 +29,9 @@
             "type": "string"
           },
           {
-            "name": "gender",
+            "name": "description",
             "in": "query",
-            "description": "gender of business to filter search by",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "in": "query",
-            "description": "name of business to filter search by",
+            "description": "description of business to filter search by",
             "required": false,
             "type": "string"
           }
@@ -52,9 +45,7 @@
                 "required": [
                   "BusinessId",
                   "name",
-                  "name",
-                  "age",
-                  "gender"
+                  "description"
                 ],
                 "properties": {
                   "BusinessId": {
@@ -63,13 +54,7 @@
                   "name": {
                     "type": "string"
                   },
-                  "name": {
-                    "type": "string"
-                  },
-                  "age": {
-                    "type": "integer"
-                  },
-                  "gender": {
+                  "description": {
                     "type": "string"
                   }
                 }
@@ -101,21 +86,13 @@
             "schema": {
               "required": [
                 "name",
-                "name",
-                "age",
-                "gender"
+                "description"
               ],
               "properties": {
                 "name": {
                   "type": "string"
                 },
-                "name": {
-                  "type": "string"
-                },
-                "age": {
-                  "type": "integer"
-                },
-                "gender": {
+                "description": {
                   "type": "string"
                 }
               }
@@ -159,9 +136,7 @@
               "required": [
                 "BusinessId",
                 "name",
-                "name",
-                "age",
-                "gender"
+                "description"
               ],
               "properties": {
                 "BusinessId": {
@@ -170,13 +145,7 @@
                 "name": {
                   "type": "string"
                 },
-                "name": {
-                  "type": "string"
-                },
-                "age": {
-                  "type": "integer"
-                },
-                "gender": {
+                "description": {
                   "type": "string"
                 }
               }
@@ -204,13 +173,13 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation"
+            "description": "Successful operation"
           },
           "400": {
             "description": "Invalid ID supplied"
           },
           "404": {
-            "description": "business not found"
+            "description": "Business not found"
           },
           "405": {
             "description": "Validation exception"
@@ -248,9 +217,7 @@
       "type": "object",
       "required": [
         "name",
-        "name",
-        "age",
-        "gender"
+        "description"
       ],
       "properties": {
         "id": {
@@ -259,13 +226,7 @@
         "name": {
           "type": "string"
         },
-        "name": {
-          "type": "string"
-        },
-        "age": {
-          "type": "integer"
-        },
-        "gender": {
+        "description": {
           "type": "string"
         }
       }
