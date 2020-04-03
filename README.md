@@ -6,7 +6,7 @@
 
 ## Description
 
-_This API allows users to GET, POST, PUT, and DELETE businesses of the cretaceous period._
+_This API allows users to GET, POST, PUT, and DELETE businesses in BusinessesAPI._
 
 ## Specification user stories:
 * A user is able to GET, POST, PUT, and DELETE businesses.
@@ -92,7 +92,7 @@ _Recreate the ``kristina_hengster_tintor`` database using the following commands
 
 _Run this application by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the BusinessesApi directory:_
 * ``dotnet run`` or ``dotnet watch run``
-* With the API running, open the [Swagger UI](http://localhost:5000/swagger/index.html#/) to view and test the different routes of this API!
+* Open the [Swagger UI](http://localhost:5000/swagger/index.html#/) to view and test the different routes of this API
 
 _To view/edit the source code of this application, open the contents of the BusinessesApi.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal at the root of the BusinessesApi.Solution directory)._
 
