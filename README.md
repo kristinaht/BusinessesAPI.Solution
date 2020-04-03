@@ -12,9 +12,10 @@ _This API allows users to GET, POST, PUT, and DELETE businesses of the cretaceou
 * A user is able to GET, POST, PUT, and DELETE businesses.
 * A user is able to view details for a specific business, based on BusinessId.
 * A user is able to GET businesses by name or description.
+* A user is able to work with multiple versions of API. If 
 
 ## Endpoints:
-### All endpoints have a host of 'localhost:5004' and base path of '/api'
+### All endpoints have a host of 'localhost:5000' and base path of '/api'
 * '/businesses'
   - GET request
   - returns list of all businesses matching search parameters name and/or description, or all businesses if no search parameters are used.

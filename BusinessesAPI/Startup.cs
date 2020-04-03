@@ -20,6 +20,18 @@ namespace BusinessesApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+			services.AddApiVersioning(config =>
+			{
+				// default API version is 1.0
+				config.DefaultApiVersion = new ApiVersion(1, 0);
+				// if client doesn't specify API version in the request, use the default version
+				config.AssumeDefaultVersionWhenUnspecified = true;
+				// advertise the API versions supported for the particular endpoint
+				config.ReportApiVersions = true;
+			});
+            
             services.AddDbContext<BusinessesApiContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
