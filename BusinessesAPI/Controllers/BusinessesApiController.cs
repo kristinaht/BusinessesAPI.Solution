@@ -26,10 +26,19 @@ namespace BusinessesApi.Controllers
 			}
 
 			//POST api/businesses
+			[HttpPost]
 			public void Post([FromBody] Businesses business) //[FromBody] allows to actually put values/details of a business in the POST API call 
 			{
 				_db.Businesses.Add(business);
 				_db.SaveChanges();
 			}
+
+			//GET api/businesses/1
+			[HttpGet("{id}")]
+			public ActionResult<Business> Get(int id)
+			{
+				return _db.Businesses.FirstOrDefault(entry =>entry.BusinessId == id);
+			}
+
     }
 }
