@@ -10,36 +10,26 @@ namespace BusinessesApi.Controllers
     [ApiController]
     public class BusinessesController : ControllerBase
     {
+
+			private BusinessesApiContext _db;
+
+			public BusinessesController(BusinessesApiContext db)
+			{
+				_db = db;
+			}
+
 			// GET api/businesses
 			[HttpGet]
 			public ActionResult<IEnumerable<Business>> Get()
 			{
-					
+				return _db.Businesses.ToList();
 			}
 
-			// GET api/businesses/5
-			[HttpGet("{id}")]
-			public ActionResult<string> Get(int id)
+			//POST api/businesses
+			public void Post([FromBody] Businesses business) //[FromBody] allows to actually put values/details of a business in the POST API call 
 			{
-				return "value";
-			}
-
-			// POST api/businesses
-			[HttpPost]
-			public void Post([FromBody] string value)
-			{
-			}
-
-			// PUT api/businesses/5
-			[HttpPut("{id}")]
-			public void Put(int id, [FromBody] string value)
-			{
-			}
-
-			// DELETE api/businesses/5
-			[HttpDelete("{id}")]
-			public void Delete(int id)
-			{
+				_db.Businesses.Add(business);
+				_db.SaveChanges();
 			}
     }
 }
