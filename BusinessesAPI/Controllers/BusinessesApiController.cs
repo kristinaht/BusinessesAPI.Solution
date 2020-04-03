@@ -22,9 +22,21 @@ namespace BusinessesApi.Controllers
 
 			// GET api/businesses
 			[HttpGet]
-			public ActionResult<IEnumerable<Business>> Get()
+			public ActionResult<IEnumerable<Business>> Get(string name, string description)
 			{
-				return _db.Businesses.ToList();
+				var query = _db.Businesses.AsQueryable();
+
+				if (name != null)
+				{
+					query = query.Where(entry => entry.Name == name);
+				}
+
+				if(description != null)
+				{
+					query = query.Where(entry => entry.Description == description);
+				}
+
+				return query.ToList();
 			}
 
 			//POST api/businesses
