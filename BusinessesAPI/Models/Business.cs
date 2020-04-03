@@ -1,4 +1,4 @@
-namespace BusinessesApi
+namespace BusinessesApi.Models
 {
   public class Business
   {
