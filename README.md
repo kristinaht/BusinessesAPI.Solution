@@ -11,8 +11,8 @@ _This API allows users to GET, POST, PUT, and DELETE businesses of the cretaceou
 ## Specification user stories:
 * A user is able to GET, POST, PUT, and DELETE businesses.
 * A user is able to view details for a specific business, based on BusinessId.
-* A user is able to GET businesses by name or description.
-* A user is able to work with multiple versions of API. If 
+* A user is able to GET businesses by name or description. 
+### When testing the API using an application such as Postman, user is able to see which versions of API are available by going to the Response area and checking the "Headers" section.
 
 ## Endpoints:
 ### All endpoints have a host of 'localhost:5000' and base path of '/api'
@@ -104,6 +104,7 @@ _To view/edit the source code of this application, open the contents of the Busi
 * dotnet script 0.50.1
 * Visual Studio Code 1.43.1
 * Model-View-Controller(MVC) framework
+* Mvc Versioning 2.2
 * MySQL 8.0.15
 * MySQL Workbench 8.0.15
 * Entity Framework Core 2.2.4
