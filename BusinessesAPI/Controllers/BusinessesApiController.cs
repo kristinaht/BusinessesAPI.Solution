@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+// using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessesApi.Models;
 
 namespace BusinessesApi.Controllers
 {
@@ -27,7 +29,7 @@ namespace BusinessesApi.Controllers
 
 			//POST api/businesses
 			[HttpPost]
-			public void Post([FromBody] Businesses business) //[FromBody] allows to actually put values/details of a business in the POST API call 
+			public void Post([FromBody] Business business) //[FromBody] allows to actually put values/details of a business in the POST API call 
 			{
 				_db.Businesses.Add(business);
 				_db.SaveChanges();
@@ -37,7 +39,16 @@ namespace BusinessesApi.Controllers
 			[HttpGet("{id}")]
 			public ActionResult<Business> Get(int id)
 			{
-				return _db.Businesses.FirstOrDefault(entry =>entry.BusinessId == id);
+				return _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
+			}
+
+			//PUT api/businesses/1
+		  [HttpPut("{id}")]
+			public void Put(int id, [FromBody] Business business)
+			{
+				business.BusinessId = id;
+				_db.Entry(business).State = EntityState.Modified;
+				_db.SaveChanges();
 			}
 
     }
